@@ -16,10 +16,10 @@ python demo_sam.py --input_image assets/demo.png --output_dir outputs_demo
 wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 # CLIP model weight is downloaded by default
 
-python demo_sani.py --input_image assets/demo.png --output_dir outputs_demo --text_promt "dog"
+python demo_sani.py --input_image assets/demo.png --output_dir outputs_demo --text_prompt "dog"
 ```
 
-## Run ChatBot Demo
+## Run ChatBot for Segment-Anything-and-Name-It
 ```
 python chatbot.py
 ```
