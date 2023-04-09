@@ -1,5 +1,28 @@
 # Segment Anything and Name It
 
+## Installation
+
+See [installation instructions](INSTALL.md).
+
+## Run Segment-Anything Demo
+```
+wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+
+python demo_sam.py --input_image assets/demo.png --output_dir outputs_demo 
+```
+
+## Run Segment-Anything-and-Name-It Demo
+```
+wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+# CLIP model weight is downloaded by default
+
+python demo_sani.py --input_image assets/demo.png --output_dir outputs_demo --text_promt "dog"
+```
+
+## Run ChatBot Demo
+```
+python chatbot.py
+```
 
 
 ## License
