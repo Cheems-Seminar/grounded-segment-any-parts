@@ -172,15 +172,15 @@ def build_text_encoder(pretrain=True, visual_type="RN50"):
         "visual_type": ["embed_dim", "context_length", "vocab_size",
                         "transformer_width", "transformer_heads", "transformer_layers"],
         "RN50":        [1024, 77, 49408, 512, 8, 12],
-        "ViT-B/32":    [512, 77, 49408, 512, 8, 12],
+        "RN50x4":      [640, 77, 49408, 640, 10, 12],
+        "RN50x16":     [768, 77, 49408, 768, 12, 12],
+        "RN50x64":     [1024, 77, 49408, 1024, 16, 12],
     }
     text_encoder = CLIPTEXT(**{k: v for k, v in zip(clip_dict['visual_type'], clip_dict[visual_type])})
     if pretrain:
         import clip
-        if visual_type == 'RN50':
-            pretrained_model, _ = clip.load("RN50", device='cpu')
-        elif visual_type == 'ViT-B/32':
-            pretrained_model, _ = clip.load("ViT-B/32", device='cpu')
+        if visual_type in clip_dict:
+            pretrained_model, _ = clip.load(visual_type, device='cpu')
         else:
             raise NotImplementedError
 

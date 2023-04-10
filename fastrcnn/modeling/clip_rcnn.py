@@ -24,7 +24,14 @@ from .text_encoder import build_text_encoder
 
 
 def build_clip_rcnn(clip_type='RN50'):
-    clip_rcnn = CLIP_RCNN(clip_type=clip_type)
+    pooler_res_dict = {
+        "RN50": 14,
+        "RN50x4": 18,
+        "RN50x16": 24,
+        "RN50x64": 28,
+    }
+    pooler_resolution = pooler_res_dict[clip_type]
+    clip_rcnn = CLIP_RCNN(clip_type=clip_type, pooler_resolution=pooler_resolution)
     clip_rcnn.eval()
     return clip_rcnn
 
@@ -37,12 +44,12 @@ class CLIP_RCNN(nn.Module):
     def __init__(
         self,
         clip_type,
-        softmax_t: float = 0.01,
-        pooler_resolution: int = 14,
+        pooler_resolution,
         pooler_scales: int = 16,
         sampling_ratio: int = 0,
         pooler_type: str = "ROIAlignV2",
         canonical_box_size: int = 224,
+        softmax_t: float = 0.01,
     ):
         super().__init__()
         self.register_buffer("pixel_mean_clip",
@@ -75,11 +82,10 @@ class CLIP_RCNN(nn.Module):
         features = self.clip_res_c4_backbone(imageList_clip.tensor)
         text_embed = self.get_text_embeddings(text_prompt)
         clip_scores = self.clip_res5_roi_heads(features, boxes, text_embed)
-        return clip_scores.cpu().tolist()
+        return clip_scores.cpu()
 
     def get_text_embeddings(self, vocabulary, prefix_prompt='a '):
-        if not isinstance(vocabulary, list):
-            vocabulary = [vocabulary]
+        vocabulary = vocabulary.split(',')
         texts = [prefix_prompt + x.lower().replace(':', ' ') for x in vocabulary]
         texts_aug = texts + ['background']
         emb = self.text_encoder(texts_aug).permute(1, 0)
@@ -110,7 +116,7 @@ class CLIP_RCNN(nn.Module):
         region_features = F.normalize(region_features, p=2, dim=-1)
 
         similarity = ((1 / self.softmax_t) * region_features @ text_embed).softmax(dim=-1)
-        clip_scores = similarity[:,0]
+        clip_scores = similarity[:,:-1]
         return clip_scores
 
 
