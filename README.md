@@ -1,6 +1,6 @@
 
 <p align="center" width="100%">
-<a href="https://github.com/Cheems-Seminar/segment-anything-and-name-it" target="_blank"><img src="assets/logo.png" alt="Cheems Seminar" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
+<a href="https://github.com/Cheems-Seminar/segment-anything-and-name-it" target="_blank"><img src="assets/logo.png" alt="Cheems Seminar" style="width: 70%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
 
 # Grounded Segment Anything: From Objects to Parts
