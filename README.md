@@ -6,17 +6,17 @@
 # Grounded Segment Anything: From Objects to Parts
 
 
-In this repo, we expand [Segment Anything Model](https://segment-anything.com/) (SAM) to support text prompt input. The text prompt could be object-level (eg, dog) and part-level (eg, dog head). Furthermore，we build a [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt)-based dialogue system that flexibly calls various segmentation models when receiving instructions in the form of natural language.
+In this repo, we expand [Segment Anything Model](https://segment-anything.com/) (SAM) to support text prompt input. The text prompt could be object-level:full_moon: (eg, dog) and part-level:last_quarter_moon: (eg, dog head). Furthermore，we build a [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt)-based dialogue system :robot::speech_balloon: that flexibly calls various segmentation models when receiving instructions in the form of natural language.
 
 
 ## :sparkles::sparkles: Highlights :sparkles::sparkles:
 
-- Grounded segment anything at both object level and ***part*** level.
-- Integrate with [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt) :robot::speech_balloon:.
+Beyond class-agnostic mask segmentation, this repo contains:
 
+- Grounded segment anything at both **object** level and ***part*** level.
+- Interacting with models in the form of **natural language**.
 
-## Model Summary
-
+These abilities come from a series of models, including:
 
 | Model | Function |
 | ----  | -------- |
