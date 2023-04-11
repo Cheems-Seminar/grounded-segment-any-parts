@@ -8,7 +8,7 @@
 
 In this repo, we expand [Segment Anything Model](https://segment-anything.com/) (SAM) to support text prompt input. The text prompt could be object-level:full_moon: (eg, dog) and part-level:last_quarter_moon: (eg, dog head). Furthermore，we build a [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt)-based dialogue system :robot::speech_balloon: that flexibly calls various segmentation models when receiving instructions in the form of natural language.
 
-
+### [[Blog]](https://cheems-seminar.github.io/)  [[Chinese Blog]](https://zhuanlan.zhihu.com/p/620536337)
 ## :sparkles::sparkles: Highlights :sparkles::sparkles:
 
 Beyond class-agnostic mask segmentation, this repo contains:
