@@ -6,8 +6,7 @@
 # Grounded Segment Anything: From Objects to Parts
 
 
-![](./assets/teaser.png)
-
+In this repo, we expand [Segment Anything Model](https://segment-anything.com/) (SAM) to support text prompt input. The text prompt could be object-level (eg, dog) and part-level (eg, dog head). Furthermore，we build a [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt)-based dialogue system that flexibly calls various segmentation models when receiving instructions in the form of natural language.
 
 
 ## :sparkles::sparkles: Highlights :sparkles::sparkles:
