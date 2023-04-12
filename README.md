@@ -25,6 +25,18 @@ These abilities come from a series of models, including:
 | [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt) | Connects ChatGPT and segmentation foundation models |
 | :star:**VLPart**:star: (*under review*) | Going denser with open-vocabulary part segmentation |
 
+
+### FAQ
+
+**Q:** When will VLPart paper be released ?
+
+**A:** The paper is under internal review and it will be released in about one month. Please stay tuned.
+
+
+**Q:** What is the difference between [Grounded SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything) and this project ?
+
+**A:** Grounded SAM is Grounded DINO + SAM, and this project is GLIP/VLPart + SAM. We believe any open-vocabulary (text prompt) object detection model can be used to combine with SAM.
+
 ## Usage
 
 ### Install
