@@ -1,4 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
+# VLPart: Going denser with open-vocabulary part segmentation 
+# Written by Peize Sun and Shoufa Chen
 import logging
 from typing import Callable, Dict, List, Optional, Tuple, Union
 import math

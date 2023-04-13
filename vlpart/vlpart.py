@@ -1,3 +1,6 @@
+# Copyright (c) Facebook, Inc. and its affiliates.
+# VLPart: Going denser with open-vocabulary part segmentation
+# Written by Peize Sun and Shoufa Chen
 import logging
 import numpy as np
 import itertools
