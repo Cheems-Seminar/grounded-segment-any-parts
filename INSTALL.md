@@ -20,3 +20,6 @@ cd segment-anything; pip install -e .; cd ..
 # 4. Install glip
 cd glip; pip install -e .; cd ..
 ```
+
+# (Optional for part-level edit) 5. Install xformer
+Follwing [xformer install](https://github.com/facebookresearch/xformers#installing-xformers).
