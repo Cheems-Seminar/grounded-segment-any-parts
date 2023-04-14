@@ -1,8 +1,8 @@
 
 ```bash
 
-git clone https://github.com/Cheems-Seminar/segment-anything-and-name-it.git
-cd segment-anything-and-name-it
+git clone https://github.com/Cheems-Seminar/grounded-segment-any-parts.git
+cd grounded-segment-any-parts
 conda create -n sani python=3.8
 conda activate sani
 

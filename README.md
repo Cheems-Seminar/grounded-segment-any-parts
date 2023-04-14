@@ -1,6 +1,6 @@
 
 <p align="center" width="100%">
-<a href="https://github.com/Cheems-Seminar/segment-anything-and-name-it" target="_blank"><img src="assets/logo.png" alt="Cheems Seminar" style="width: 70%; min-width: 300px; display: block; margin: auto;"></a>
+<a href="https://github.com/Cheems-Seminar/grounded-segment-any-parts" target="_blank"><img src="assets/logo.png" alt="Cheems Seminar" style="width: 70%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
 
 # Grounded Segment Anything: From Objects to Parts
@@ -78,7 +78,7 @@ python chatbot.py --load "ImageCaptioning_cuda:0, SegmentAnything_cuda:1, PartPr
 
 ```bash
 
-wget https://github.com/Cheems-Seminar/segment-anything-and-name-it/releases/download/v1.0/swinbase_part_0a0000.pth
+wget https://github.com/Cheems-Seminar/grounded-segment-any-parts/releases/download/v1.0/swinbase_part_0a0000.pth
 wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 
 python demo_vlpart_sam.py --input_image assets/twodogs.jpeg --output_dir outputs_demo --text_prompt "dog head"
@@ -90,7 +90,7 @@ Result:
 ### :full_moon: Prompt Segment Anything at Object Level
 
 ```bash
-wget https://github.com/Cheems-Seminar/segment-anything-and-name-it/releases/download/v1.0/glip_large.pth
+wget https://github.com/Cheems-Seminar/grounded-segment-any-parts/releases/download/v1.0/glip_large.pth
 
 python demo_glip_sam.py --input_image assets/demo2.jpeg --output_dir outputs_demo --text_prompt "frog"
 
@@ -109,8 +109,8 @@ For multiple prompts, seperate each prompt with `.`, for example, `--text_prompt
 ### Model Checkpoints
 
 * [ViT-H SAM model](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth)
-* [VLPart Swin-Base](https://github.com/Cheems-Seminar/segment-anything-and-name-it/releases/download/v1.0/swinbase_part_0a0000.pth)
-* [GLIP Swin-Large](https://github.com/Cheems-Seminar/segment-anything-and-name-it/releases/download/v1.0/glip_large.pth)
+* [VLPart Swin-Base](https://github.com/Cheems-Seminar/grounded-segment-any-parts/releases/download/v1.0/swinbase_part_0a0000.pth)
+* [GLIP Swin-Large](https://github.com/Cheems-Seminar/grounded-segment-any-parts/releases/download/v1.0/glip_large.pth)
 
 
 ## License
@@ -129,7 +129,7 @@ If you find this project helpful for your research, please consider citing the f
 @misc{segrec2023,
   title =        {Grounded Segment Anything: From Objects to Parts},
   author =       {Sun, Peize and Chen, Shoufa and Luo, Ping},
-  howpublished = {\url{https://github.com/Cheems-Seminar/segment-anything-and-name-it}},
+  howpublished = {\url{https://github.com/Cheems-Seminar/grounded-segment-any-parts}},
   year =         {2023}
 }
 
