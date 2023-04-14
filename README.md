@@ -62,6 +62,11 @@ These abilities come from a series of models, including:
 See [installation instructions](INSTALL.md).
 
 
+### Edit
+
+```bash
+python demo_part_edit.py
+```
 
 ### :robot::speech_balloon: Integration with Visual ChatGPT
 
