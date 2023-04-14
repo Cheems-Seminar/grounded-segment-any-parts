@@ -5,10 +5,28 @@
 
 # Grounded Segment Anything: From Objects to Parts
 
-
 In this repo, we expand [Segment Anything Model](https://segment-anything.com/) (SAM) to support text prompt input. The text prompt could be object-level:full_moon: (eg, dog) and part-level:last_quarter_moon: (eg, dog head). Furthermore，we build a [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt)-based dialogue system :robot::speech_balloon: that flexibly calls various segmentation models when receiving instructions in the form of natural language.
 
 ### [[Blog]](https://cheems-seminar.github.io/)  [[Chinese Blog]](https://zhuanlan.zhihu.com/p/620536337)
+
+## News
+
+* 2023/04/14: Edit anything at more fine-grained part-level.
+* 2023/04/11: Initial code release.
+
+### :rocket:New:rocket: Edit on Part-Level
+
+Part Prompt: "dog body"; Edit Prompt: "zebra"
+![p](./assets/dog2zebra.jpg)
+Part Prompt: "cat head"; Edit Prompt: "tiger"
+![p](./assets/cat2tiger.jpg)
+Part Prompt: "chair seat"; Edit Prompt: "cholocate"
+![p](./assets/chair2cholocate.jpg)
+Part Prompt: "person head"; Edit Prompt: "combover hairstyle"
+![p](./assets/muskhair.jpg)
+
+
+
 ## :sparkles::sparkles: Highlights :sparkles::sparkles:
 
 Beyond class-agnostic mask segmentation, this repo contains:
@@ -102,7 +120,7 @@ This project is under the CC-BY-NC 4.0 license. See [LICENSE](LICENSE) for detai
 
 ## Acknowledgement
 
-A large part of the code is borrowed from [segment-anything](https://github.com/facebookresearch/segment-anything), [CLIP](https://github.com/openai/CLIP), [GLIP](https://github.com/microsoft/GLIP), [Grounded-Segment-Anything](https://github.com/IDEA-Research/Grounded-Segment-Anything), [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt). Many thanks for their wonderful works.
+A large part of the code is borrowed from [segment-anything](https://github.com/facebookresearch/segment-anything), [EditAnything](https://github.com/sail-sg/EditAnything), [CLIP](https://github.com/openai/CLIP), [GLIP](https://github.com/microsoft/GLIP), [Grounded-Segment-Anything](https://github.com/IDEA-Research/Grounded-Segment-Anything), [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt). Many thanks for their wonderful works.
 
 
 ## Citation
