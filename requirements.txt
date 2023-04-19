@@ -22,6 +22,7 @@ streamlit
 test-tube
 timm==0.6.13
 torchmetrics
+transformers
 webdataset
 yapf
 inflect
