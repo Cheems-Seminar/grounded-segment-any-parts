@@ -48,10 +48,10 @@ def show_predictions(scores, boxes, classes):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Segment-Anything-and-Name-It Demo", add_help=True)
     parser.add_argument(
-        "--glip_checkpoint", type=str, default="glip_tiny.pth", help="path to checkpoint file"
+        "--glip_checkpoint", type=str, default="glip_large.pth", help="path to checkpoint file"
     )
     parser.add_argument(
-        "--glip_config_file", type=str, default="glip/configs/glip_Swin_T_O365_GoldG.yaml", help="path to checkpoint file"
+        "--glip_config_file", type=str, default="glip/configs/glip_Swin_L.yaml", help="path to configuration file"
     )
     parser.add_argument("--input_image", type=str, required=True, help="path to image file")
     parser.add_argument("--text_prompt", type=str, required=True, help="text prompt")
