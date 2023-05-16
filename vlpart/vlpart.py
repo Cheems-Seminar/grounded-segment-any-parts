@@ -42,6 +42,11 @@ def build_vlpart(checkpoint=None):
                          'MODEL.ROI_BOX_HEAD.NUM_FC', 2,
                          'MODEL.ANCHOR_GENERATOR.SIZES', [[32], [64], [128], [256], [512]],
                          'MODEL.ANCHOR_GENERATOR.ASPECT_RATIOS', [[0.5, 1.0, 2.0]],
+                         'MODEL.MASK_ON', True,        
+                         'MODEL.ROI_MASK_HEAD.NAME', "MaskRCNNConvUpsampleHead",
+                         'MODEL.ROI_MASK_HEAD.NUM_CONV', 4,
+                         'MODEL.ROI_MASK_HEAD.POOLER_RESOLUTION', 14,
+                         'MODEL.ROI_MASK_HEAD.CLS_AGNOSTIC_MASK', True,
     ])
     backbone = build_swinbase_fpn_backbone()
     vlpart = VLPart(

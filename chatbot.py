@@ -1117,14 +1117,16 @@ class PartPromptSegmentAnything:
         with torch.no_grad():
             predictions = self.vlpart.inference([vl_inputs], text_prompt=text_prompt)[0]
 
-        boxes, masks = None, None
+        # boxes, masks = None, None
         filter_scores, filter_boxes, filter_classes = [], [], []
-
+        filter_masks = []
+        
         if "instances" in predictions:
             instances = predictions['instances'].to('cpu')
             boxes = instances.pred_boxes.tensor if instances.has("pred_boxes") else None
             scores = instances.scores if instances.has("scores") else None
             classes = instances.pred_classes.tolist() if instances.has("pred_classes") else None
+            masks = instances.pred_masks.unsqueeze(1).numpy() if instances.has("pred_masks") else None
 
             num_obj = len(scores)
             for obj_ind in range(num_obj):
@@ -1134,36 +1136,43 @@ class PartPromptSegmentAnything:
                 filter_scores.append(category_score)
                 filter_boxes.append(boxes[obj_ind])
                 filter_classes.append(classes[obj_ind])
-            
-        sam_predictor = SamPredictor(self.sam)
-        if len(filter_boxes) > 0:
-            # sam model inference
-            sam_predictor.set_image(original_image)
+                filter_masks.append(masks[obj_ind])
+#         sam_predictor = SamPredictor(self.sam)
+#         if len(filter_boxes) > 0:
+#             # sam model inference
+#             sam_predictor.set_image(original_image)
 
-            boxes_filter = torch.stack(filter_boxes)
-            transformed_boxes = sam_predictor.transform.apply_boxes_torch(boxes_filter, original_image.shape[:2])
-            masks, _, _ = sam_predictor.predict_torch(
-                point_coords=None,
-                point_labels=None,
-                boxes=transformed_boxes.to(self.device),
-                multimask_output=False,
-            )
+#             boxes_filter = torch.stack(filter_boxes)
+#             transformed_boxes = sam_predictor.transform.apply_boxes_torch(boxes_filter, original_image.shape[:2])
+#             masks, _, _ = sam_predictor.predict_torch(
+#                 point_coords=None,
+#                 point_labels=None,
+#                 boxes=transformed_boxes.to(self.device),
+#                 multimask_output=False,
+#             )
             
-            # remove small disconnected regions and holes
-            fine_masks = []
-            for mask in masks.to('cpu').numpy():  # masks: [num_masks, 1, h, w]
-                fine_masks.append(remove_small_regions(mask[0], 400, mode="holes")[0])
-            masks = np.stack(fine_masks, axis=0)[:, np.newaxis]
-            masks = torch.from_numpy(masks)
+#             # remove small disconnected regions and holes
+#             fine_masks = []
+#             for mask in masks.to('cpu').numpy():  # masks: [num_masks, 1, h, w]
+#                 fine_masks.append(remove_small_regions(mask[0], 400, mode="holes")[0])
+#             masks = np.stack(fine_masks, axis=0)[:, np.newaxis]
+#             masks = torch.from_numpy(masks)
+
+#         # draw output image
+#         plt.figure(figsize=(10, 10))
+#         plt.imshow(original_image)
+
+#         if len(filter_boxes) > 0:
+#             show_predictions_with_masks(filter_scores, filter_boxes, filter_classes,
+#                                         masks.to('cpu'), text_prompt)
 
         # draw output image
         plt.figure(figsize=(10, 10))
-        plt.imshow(original_image)
-
+        plt.imshow(original_image)        
         if len(filter_boxes) > 0:
             show_predictions_with_masks(filter_scores, filter_boxes, filter_classes,
-                                        masks.to('cpu'), text_prompt)
-
+                                        filter_masks, text_prompt)
+            
         plt.axis('off')
         updated_image_path = get_new_image_name(inputs, func_name="ppsam")
         plt.savefig(

@@ -20,7 +20,8 @@ def show_predictions(predictions, text_prompt):
     boxes = predictions.pred_boxes.tensor if predictions.has("pred_boxes") else None
     scores = predictions.scores if predictions.has("scores") else None
     classes = predictions.pred_classes.tolist() if predictions.has("pred_classes") else None
-
+    masks = predictions.pred_masks.numpy() if predictions.has("pred_masks") else None
+    
     if len(scores) == 0:
         return
     text_prompts = text_prompt.split('.')
@@ -42,6 +43,12 @@ def show_predictions(predictions, text_prompt):
         color_mask = colors[show_obj_ind % num_show_obj]
         show_obj_ind += 1
 
+        m = masks[obj_ind]
+        img = np.ones((m.shape[0], m.shape[1], 3))
+        for i in range(3):
+            img[:,:,i] = color_mask[i]
+        ax.imshow(np.dstack((img, m*0.45)))
+        
         x0, y0, w, h = box[0], box[1], box[2] - box[0], box[3] - box[1]
         ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor=color_mask, facecolor=(0, 0, 0, 0), lw=2))
 
