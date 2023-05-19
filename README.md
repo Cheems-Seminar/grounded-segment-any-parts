@@ -41,14 +41,14 @@ These abilities come from a series of models, including:
 | [Segment Anything](https://github.com/facebookresearch/segment-anything) | Segment anything from prompt |
 | [GLIP](https://github.com/microsoft/GLIP) | Grounded language-image pre-training |
 | [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt) | Connects ChatGPT and segmentation foundation models |
-| :star:**VLPart**:star: (*under review*) | Going denser with open-vocabulary part segmentation |
+| **:star:[VLPart](https://github.com/facebookresearch/VLPart):star:** | Going denser with open-vocabulary part segmentation |
 
 
 ### FAQ
 
 **Q:** When will VLPart paper be released ?
 
-**A:** The paper is under internal review and it will be released in about one month. Please stay tuned.
+**A:** [VLPart](https://arxiv.org/abs/2305.11173) paper has been released. **:rocket::rocket::rocket:**
 
 
 **Q:** What is the difference between [Grounded SAM](https://github.com/IDEA-Research/Grounded-Segment-Anything) and this project ?
@@ -141,7 +141,7 @@ If you find this project helpful for your research, please consider citing the f
 @article{vlpart2023,
   title   =  {Going Denser with Open-Vocabulary Part Segmentation},
   author  =  {Sun, Peize and Chen, Shoufa and Zhu, Chenchen and Xiao, Fanyi and Luo, Ping and Xie, Saining and Yan, Zhicheng},
-  journal =  {Under Review},
+  journal =  {arXiv preprint arXiv:2305.11173},
   year    =  {2023}
 }
 ```
